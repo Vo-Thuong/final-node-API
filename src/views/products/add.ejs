@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm bánh mới | MyBakery</title>
+    <link rel="stylesheet" href="/css/product-add.css">
+</head>
+
+<body>
+    <%- include('../partials/header') %>
+        <div class="form-card">
+            <h2>Thêm Bánh Mới</h2>
+
+            <form action="/api/products/form" method="POST" enctype="multipart/form-data">
+
+                <label>Tên loại bánh</label>
+                <input type="text" name="name" placeholder="Ví dụ: Bánh Mì Hoa Cúc" required>
+
+                <label>Danh mục bánh</label>
+                <select name="category">
+                    <option value="Bánh mì">Bánh mì (Bread)</option>
+                    <option value="Bánh ngọt">Bánh ngọt (Pastry)</option>
+                    <option value="Bánh kem">Bánh kem (Cake)</option>
+                    <option value="Bánh quy">Bánh quy (Cookies)</option>
+                </select>
+
+                <label>Giá (VNĐ)</label>
+                <input type="number" name="price" placeholder="Nhập giá tiền" required>
+
+                <label>Hình ảnh sản phẩm</label>
+                <input type="file" name="image" accept="image/*" required>
+                <small style="color: #888; display: block; margin-top: -15px; margin-bottom: 15px;">
+                    Hỗ trợ: JPG, PNG, WEBP
+                </small>
+
+                <div class="btn-group">
+                    <button type="submit" class="btn-save">Lưu sản phẩm</button>
+                    <a href="/products-view" class="btn-cancel">Hủy</a>
+                </div>
+            </form>
+        </div>
+
+        <script src="/js/product-add.js"></script>
+</body>
+
+</html>

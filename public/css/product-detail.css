@@ -1,0 +1,192 @@
+body {
+  background: #fdf6ec;
+}
+
+.bakery-detail-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.bakery-detail-visual {
+  flex: 1;
+  min-width: 400px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  border-right: 1px solid #f1ece4;
+}
+
+.bakery-detail-visual img {
+  max-width: 100%;
+  max-height: 450px;
+  border-radius: 15px;
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(121, 85, 72, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.bakery-detail-visual img:hover {
+  transform: scale(1.02);
+}
+
+.bakery-detail-content {
+  flex: 1;
+  min-width: 350px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bakery-detail-back {
+  text-decoration: none;
+  color: #a1887f;
+  font-size: 14px;
+  margin-bottom: 25px;
+  display: inline-block;
+  font-weight: 600;
+}
+
+.bakery-detail-badge {
+  background: #ffa000;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 50px;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: bold;
+  width: fit-content;
+}
+
+.bakery-detail-title {
+  font-size: 36px;
+  margin: 15px 0;
+  color: #4e342e;
+  font-weight: 700;
+}
+
+.bakery-detail-price {
+  font-size: 28px;
+  color: #d84315;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.bakery-detail-desc {
+  line-height: 1.8;
+  color: #795548;
+  margin-bottom: 30px;
+  font-style: italic;
+  border-left: 4px solid #ffa000;
+  padding-left: 15px;
+}
+
+/* --- Khu vực bình luận --- */
+.bakery-comment-wrapper {
+  width: 100%;
+  padding: 50px;
+  background: #fafafa;
+  border-top: 1px solid #eee;
+  box-sizing: border-box;
+}
+
+.bakery-comment-header {
+  font-size: 22px;
+  margin-bottom: 30px;
+  color: #4e342e;
+  font-weight: 700;
+}
+
+.bakery-comment-card {
+  display: flex;
+  gap: 15px;
+  background: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+  border: 1px solid #f1f1f1;
+}
+
+.comment-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ffa000;
+}
+
+.comment-info {
+  flex: 1;
+}
+
+.bakery-comment-author {
+  font-weight: 700;
+  font-size: 15px;
+  color: #795548;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.bakery-comment-text {
+  color: #5d4037;
+  line-height: 1.5;
+  background: #fdf6ec;
+  padding: 12px;
+  border-radius: 0 12px 12px 12px;
+  display: inline-block;
+}
+
+/* --- Form gửi bình luận --- */
+.bakery-comment-form {
+  margin-top: 40px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  border: 2px dashed #d7ccc8;
+}
+
+.bakery-comment-textarea {
+  width: 100%;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 15px;
+  margin: 15px 0;
+  box-sizing: border-box;
+  font-family: inherit;
+  background: #fdfdfd;
+}
+
+.bakery-comment-submit {
+  background: #795548;
+  color: white;
+  padding: 12px 35px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.bakery-comment-submit:hover {
+  background: #ffa000;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .bakery-detail-visual {
+    border-right: none;
+    min-width: 100%;
+  }
+  .bakery-detail-container {
+    margin: 10px;
+  }
+}

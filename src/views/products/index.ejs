@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiệm Bánh Mật Ong | Thực Đơn</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.css">
+
+    <link rel="stylesheet" href="/css/product-list.css">
+</head>
+
+<body>
+    <%- include('../partials/header') %>
+
+        <div class="bakery-shop-container">
+            <div class="bakery-shop-header">
+                <div class="bakery-shop-title">
+                    <h2>Thực Đơn Hôm Nay</h2>
+                    <p>Khám phá hương vị bánh thủ công nướng mới mỗi ngày</p>
+                </div>
+            </div>
+
+            <div class="bakery-shop-filter">
+                <form action="/products-view" method="GET" class="bakery-shop-form" id="filterForm">
+
+                    <div class="filter-group">
+                        <input type="text" name="search" class="bakery-shop-input" placeholder="Tìm tên chiếc bánh..."
+                            value="<%= query.search || '' %>">
+                    </div>
+
+                    <div class="filter-group">
+                        <select name="category" class="bakery-shop-select">
+                            <option value="">Tất cả loại bánh</option>
+                            <% const categories=['Bánh ngọt', 'Bánh mì' , 'Bánh kem' , 'Đồ uống' , 'Khác' ]; %>
+                                <% categories.forEach(cat=> { %>
+                                    <option value="<%= cat %>" <%=query.category===cat ? 'selected' : '' %>>
+                                        <%= cat %>
+                                    </option>
+                                    <% }); %>
+                        </select>
+                    </div>
+
+                    <div class="price-filter-wrapper">
+                        <div id="price-slider"></div>
+                        <div class="price-labels">
+                            <span id="min-price-label">0đ</span>
+                            <span id="max-price-label">500.000đ</span>
+                        </div>
+                        <input type="hidden" name="minPrice" id="minPrice" value="<%= query.minPrice || 0 %>">
+                        <input type="hidden" name="maxPrice" id="maxPrice" value="<%= query.maxPrice || 500000 %>">
+                    </div>
+
+                    <button type="submit" class="bakery-shop-btn-search">
+                        <i class="bi bi-filter-right me-1"></i> Lọc Thực Đơn
+                    </button>
+                </form>
+            </div>
+
+            <div class="bakery-shop-grid" id="product-list-container">
+                <% if (products && products.length> 0) { %>
+                    <% products.forEach(p=> { %>
+                        <div class="bakery-shop-card">
+                            <div class="bakery-shop-img-box">
+                                <span class="bakery-shop-badge">
+                                    <%= p.category %>
+                                </span>
+                                <img src="<%= p.image || '/uploads/default.png' %>" alt="<%= p.name %>"
+                                    class="bakery-shop-img">
+                            </div>
+
+                            <div class="bakery-shop-body">
+                                <h3 class="bakery-shop-name">
+                                    <%= p.name %>
+                                </h3>
+                                <div class="bakery-shop-price">
+                                    <%= p.price ? p.price.toLocaleString('vi-VN') : 0 %> <small>VNĐ</small>
+                                </div>
+
+                                <div class="bakery-shop-actions">
+                                    <a href="/products-view/<%= p._id %>" class="bakery-shop-btn btn-view"
+                                        title="Xem chi tiết">
+                                        <i class="bi bi-eye"></i>
+                                    </a>
+                                    <a href="/products/edit/<%= p._id %>" class="bakery-shop-btn btn-edit"
+                                        title="Chỉnh sửa">
+                                        <i class="bi bi-pencil"></i>
+                                    </a>
+                                    <a href="/api/products/delete/<%= p._id %>" class="bakery-shop-btn btn-delete"
+                                        title="Xóa">
+                                        <i class="bi bi-trash"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <% }) %>
+                            <% } else { %>
+                                <div class="no-results">
+                                    <i class="bi bi-search"></i>
+                                    <p>Không tìm thấy món bánh nào phù hợp với yêu cầu của bạn.</p>
+                                    <a href="/products-view" class="clear-filter-link">Xóa tất cả bộ lọc</a>
+                                </div>
+                                <% } %>
+            </div>
+        </div>
+
+        <a href="/products/add" class="bakery-shop-float-btn" title="Thêm món mới">
+            <i class="bi bi-plus-lg"></i>
+        </a>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.js"></script>
+
+        <script src="/js/product-list.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+body {
+  background-color: #fdf6ec;
+  font-family: "Quicksand", sans-serif;
+}
+
+.profile-card {
+  max-width: 600px;
+  margin: 50px auto;
+  background: white;
+  padding: 40px;
+  border-radius: 25px;
+  box-shadow: 0 15px 35px rgba(121, 85, 72, 0.1);
+  border: 1px solid #efebe9;
+}
+
+.profile-title {
+  color: #4e342e;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.profile-avatar-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 30px;
+}
+
+.profile-avatar-lg {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  outline: 3px solid #ffa000;
+}
+
+.btn-bakery {
+  background: #795548;
+  color: white;
+  border-radius: 50px;
+  padding: 12px 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.btn-bakery:hover {
+  background: #5d4037;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(93, 64, 55, 0.3);
+}
+
+.form-label {
+  color: #5d4037;
+  font-size: 0.95rem;
+}
+
+.form-control:focus {
+  border-color: #ffa000;
+  box-shadow: 0 0 0 0.25rem rgba(255, 160, 0, 0.15);
+}
+
+.back-to-shop {
+  display: inline-block;
+  margin-top: 20px;
+  color: #a1887f;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.back-to-shop:hover {
+  color: #795548;
+  text-decoration: underline;
+}

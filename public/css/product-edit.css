@@ -1,0 +1,115 @@
+:root {
+  --bakery-primary: #795548;
+  --bakery-secondary: #ffa000;
+  --bakery-bg: #fdf6ec;
+  --bakery-text: #5d4037;
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+  background: var(--bakery-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+}
+
+.form-card {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(121, 85, 72, 0.1);
+  width: 100%;
+  max-width: 500px;
+  border: 1px solid #efebe9;
+}
+
+h2 {
+  color: var(--bakery-primary);
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--bakery-text);
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1.5px solid #eee;
+  border-radius: 10px;
+  box-sizing: border-box;
+  font-family: inherit;
+  outline: none;
+  transition: 0.3s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--bakery-secondary);
+  box-shadow: 0 0 0 3px rgba(255, 160, 0, 0.1);
+}
+
+.image-preview-section {
+  text-align: center;
+  background: #fafafa;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.current-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  border: 3px solid white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-update {
+  width: 100%;
+  background: var(--bakery-primary);
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.btn-update:hover {
+  background: #5d4037;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(121, 85, 72, 0.3);
+}
+
+.btn-back {
+  display: block;
+  text-align: center;
+  color: #8d6e63;
+  text-decoration: none;
+  font-size: 14px;
+  margin-top: 15px;
+  font-weight: 500;
+}
+
+.btn-back:hover {
+  text-decoration: underline;
+  color: var(--bakery-primary);
+}

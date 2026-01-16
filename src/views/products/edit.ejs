@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chỉnh sửa món bánh | Tiệm Bánh Mật Ong</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/product-edit.css">
+</head>
+
+<body>
+    <div class="form-card">
+        <h2>Chỉnh Sửa Thực Đơn</h2>
+
+        <form action="/api/products/edit/<%= product._id %>" method="POST" enctype="multipart/form-data">
+
+            <label>Tên món bánh</label>
+            <input type="text" name="name" value="<%= product.name %>" required placeholder="Ví dụ: Bánh Croissant bơ">
+
+            <label>Phân loại bánh</label>
+            <select name="category">
+                <% const categories=['Bánh ngọt', 'Bánh mì' , 'Bánh kem' , 'Đồ uống' , 'Khác' ]; %>
+                    <% categories.forEach(cat=> { %>
+                        <option value="<%= cat %>" <%=product.category===cat ? 'selected' : '' %>>
+                            <%= cat %>
+                        </option>
+                        <% }); %>
+            </select>
+
+            <label>Giá bán (VNĐ)</label>
+            <input type="number" name="price" value="<%= product.price %>" required>
+
+            <label>Mô tả hương vị</label>
+            <textarea name="description" rows="3"
+                placeholder="Mô tả sơ qua về bánh..."><%= product.description %></textarea>
+
+            <label>Hình ảnh sản phẩm</label>
+            <div class="image-preview-section">
+                <img src="<%= product.image %>" class="current-img" alt="Ảnh hiện tại">
+                <p style="font-size: 12px; color: #999; margin: 0;">Xem trước hình ảnh</p>
+            </div>
+            <input type="file" name="image" accept="image/*">
+
+            <button type="submit" class="btn-update">Lưu Thay Đổi</button>
+            <a href="/products-view" class="btn-back">← Quay lại danh sách</a>
+        </form>
+    </div>
+
+    <script src="/js/product-edit.js"></script>
+</body>
+
+</html>

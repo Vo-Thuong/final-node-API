@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= product.name %> | Chi Tiết Bánh
+    </title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/product-detail.css">
+</head>
+
+<body>
+    <%- include('../partials/header') %>
+
+        <div class="bakery-detail-container">
+            <div class="bakery-detail-visual">
+                <img src="<%= product.image %>" alt="<%= product.name %>">
+            </div>
+
+            <div class="bakery-detail-content">
+                <a href="/products-view" class="bakery-detail-back">← Quay lại thực đơn</a>
+
+                <div class="bakery-detail-badge">
+                    <%= product.category %>
+                </div>
+
+                <h1 class="bakery-detail-title">
+                    <%= product.name %>
+                </h1>
+
+                <div class="bakery-detail-price">
+                    <%= product.price.toLocaleString('vi-VN') %> VNĐ
+                </div>
+
+                <div class="bakery-detail-desc">
+                    <%= product.description || 'Hương vị bánh ngọt ngào được nướng mới mỗi ngày.' %>
+                </div>
+            </div>
+
+            <div class="bakery-comment-wrapper">
+                <h3 class="bakery-comment-header">🍪 Cảm nhận khách hàng (<%= comments.length %>)</h3>
+
+                <% if(comments.length===0) { %>
+                    <p style="text-align: center; color: #bcaaa4; font-style: italic;">
+                        Loại bánh này chưa có lời khen nào. Hãy là người đầu tiên thưởng thức và để lại cảm nhận nhé!
+                    </p>
+                    <% } %>
+
+                        <% comments.forEach(c=> { %>
+                            <div class="bakery-comment-card">
+                                <img src="<%= c.userAvatar || '/uploads/default-avatar.png' %>" class="comment-avatar"
+                                    alt="Avatar">
+                                <div class="comment-info">
+                                    <span class="bakery-comment-author">
+                                        <%= c.username %>
+                                    </span>
+                                    <div class="bakery-comment-text">"<%= c.content %>"</div>
+                                    <div style="font-size: 11px; color: #bcaaa4; margin-top: 8px;">
+                                        <%= new Date(c.createdAt).toLocaleDateString('vi-VN') %>
+                                    </div>
+                                </div>
+                            </div>
+                            <% }) %>
+
+                                <div class="bakery-comment-form">
+                                    <form action="/api/comments/product/<%= product._id %>" method="POST">
+                                        <label style="font-weight: 700; color: #4e342e;">Chia sẻ cảm nhận của
+                                            bạn:</label>
+                                        <textarea name="content" class="bakery-comment-textarea" rows="3"
+                                            placeholder="Bánh có vị như thế nào? Hãy cho tiệm biết nhé..."
+                                            required></textarea>
+                                        <button type="submit" class="bakery-comment-submit">Gửi cảm nhận</button>
+                                    </form>
+                                </div>
+            </div>
+        </div>
+
+        <script src="/js/product-detail.js"></script>
+</body>
+
+</html>
