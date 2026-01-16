@@ -1,2 +1,2 @@
-START SERVER : npm run dev
+START SERVER : npm run dev.
 mogooDB: myBakery
